@@ -16,12 +16,12 @@ function App() {
         	
         	<div className= "Left-box">
 				{/* <img src={require('./img/42e863669e2698303171baa9c2467987.jpg').default}  /> */}
-				<img src="img/42e863669e2698303171baa9c2467987.jpg" class= "img-thumbnail"/>
+				<img src="img/42e863669e2698303171baa9c2467987.jpg" className= "img-thumbnail"/>
 			</div>
 			<div className= 'Right-box'>
-				<button class = "Expensive-button" type = "button" onClick={console.log("expensive!")}>비싸다!</button>
-				<button class = "Cheap-button" type = "button" onClick={console.log("expensive!")}>싸다!</button>
-				<img src="img/39876858ec6a3109c42e71b37504983e.jpg" class = "img-thumbnail"/>
+				<button className = "Expensive-button" type = "button" onClick={console.log("expensive!")}>비싸다!</button>
+				<button className = "Cheap-button" type = "button" onClick={console.log("cheap!")}>싸다!</button>
+				<img src="img/39876858ec6a3109c42e71b37504983e.jpg" className = "img-thumbnail"/>
 			</div>
     	</div>
     </div>
