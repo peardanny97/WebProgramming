@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import User from './User/User';
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
 
 	return (
 	<div className="App">
+		<User />
     	<div className = "black-nav">
     		<h1 style = {{color: "white"}}>더 비쌀까 쌀까?</h1>
     	</div>
