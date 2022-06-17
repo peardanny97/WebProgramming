@@ -3,12 +3,11 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import User from './User/User';
 import AddFoodsDirectly from "./admin/addFoodsDirectly";
+import app from './FirebaseApp';
 
 function App() {
-
+	const firebaseApp = app;
 	let [title,b] = useState('recommendation')
-
-
 
 	return (
 	<div className="App">

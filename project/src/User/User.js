@@ -1,13 +1,11 @@
 import {useState} from 'react';
 import handleLogin from './handleLogin';
 import handleLogout from './handleLogout';
-import app from './FirebaseApp';
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
 
 function User() {
     const [user, setUser] = useState(null);
-    const firebase = app;
-
+    
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
         if (user) {
