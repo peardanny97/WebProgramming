@@ -6,6 +6,7 @@ import app from './FirebaseApp';
 import getFoodsData from "./useCase/getFoodsData";
 import GameScreen from "./Components/GameScreen";
 import Header from "./Components/Header";
+import MainScreen from './Components/MainScreen';
 
 function App() {
 	const firebaseApp = app;
@@ -13,8 +14,6 @@ function App() {
 	return (
 	<div className="App">
 		<Header />
-		<AddFoodsDirectly />
-		
 		<GameScreen/>
     </div>
     );

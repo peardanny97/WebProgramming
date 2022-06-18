@@ -2,6 +2,7 @@ import { useState } from "react";
 import handleLogin from "../User/handleLogin";
 import handleLogout from "../User/handleLogout";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import './UserInform.css';
 
 function UserInform() {
     const [user, setUser] = useState(null);
@@ -17,7 +18,7 @@ function UserInform() {
 
     return (
         <div className="UserInform">
-            <h1>{user ? user.displayName : "로그인하세요"}</h1>
+            <p className="user-name">{user ? user.displayName : "로그인하세요"}</p>
             <button className="Login" onClick={handleLogin}>
                 로그인
             </button>
