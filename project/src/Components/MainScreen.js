@@ -1,7 +1,9 @@
 import "./MainScreen.css";
 import { Link } from "react-router-dom";
+import getFoodsData from "../useCase/getFoodsData";
 
 function MainScreen() {
+
     return (
         <div id="main-screen">
             <img src="img/1.png" className="main-background-img" />

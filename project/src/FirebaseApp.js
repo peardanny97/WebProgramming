@@ -7,13 +7,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBwnC0wObbG8-1f1UJIXE4KOWcYbUu2N7Y",
-  authDomain: "snu-wp-team2.firebaseapp.com",
-  projectId: "snu-wp-team2",
-  storageBucket: "snu-wp-team2.appspot.com",
-  messagingSenderId: "991115484467",
-  appId: "1:991115484467:web:35906382017dd70558b246",
-  measurementId: "G-H4R1450QRJ"
+  apiKey: "AIzaSyDw9iWzxIKbnLssMNUeB5HnfX_bsHgDNEM",
+  authDomain: "wp-team2-test.firebaseapp.com",
+  projectId: "wp-team2-test",
+  storageBucket: "wp-team2-test.appspot.com",
+  messagingSenderId: "577892940155",
+  appId: "1:577892940155:web:41557af6711c6155e165de",
+  measurementId: "G-R3NKB31X1G"
 };
 
 // Initialize Firebase

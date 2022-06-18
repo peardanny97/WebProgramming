@@ -14,8 +14,8 @@ function HintDialog({left, right, handleClose, showHint}) {
                 <DialogTitle>힌트</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        {left.name}: {left.hint}<br/><br/>
-                        {right.name}: {right.hint}
+                        {left.title}: {left.title}<br/><br/>
+                        {right.title}: {right.title}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
