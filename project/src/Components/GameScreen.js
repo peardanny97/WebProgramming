@@ -41,7 +41,7 @@ function GameScreen() {
 
     useEffect(() => {
         getFoodsData().then(res => {
-            setFoods(res);
+            setFoods(res.sort(()=> Math.random() - 0.5));
             setLeftUrl(res[0].image);
             setRightUrl(res[1].image);
             setFoodsUpload(true);
