@@ -1,19 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from 'react';
-import User from './User/User';
 import AddFoodsDirectly from "./admin/addFoodsDirectly";
 import app from './FirebaseApp';
 import getFoodsData from "./useCase/getFoodsData";
 import GameScreen from "./Components/GameScreen";
-
+import Header from "./Components/Header";
 
 function App() {
 	const firebaseApp = app;
 	
 	return (
 	<div className="App">
-		<User />
+		<Header />
 		<AddFoodsDirectly />
 		
 		<GameScreen/>
