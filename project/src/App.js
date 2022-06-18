@@ -1,22 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
-import AddFoodsDirectly from "./admin/addFoodsDirectly";
 import app from "./FirebaseApp";
-import getFoodsData from "./useCase/getFoodsData";
 import GameScreen from "./Components/GameScreen";
 import Header from "./Components/Header";
 import MainScreen from "./Components/MainScreen";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
     const firebaseApp = app;
 
     return (
-        <div className="App">
-            <Header />
-            <MainScreen />
-            <GameScreen />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+                <Routes>
+                    <Route exact path="/" element={<MainScreen />} />
+                    <Route path="/game" element={ <GameScreen />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
     );
 }
 
