@@ -8,8 +8,8 @@ function EndScreen(props){
             <img src="img/1.png" className="end-background-img" />
             <div className="end-container">
                 <div className="end-content">
-                    <div className="end-score">Score : {props.score.current} 개</div>
-                    <Link to="/">메인으로</Link>
+                    <div className="end-score">Score {props.score.current} 개</div>
+                    <Link to="/" className="link">메인으로</Link>
                 </div>
             </div>
         </div>

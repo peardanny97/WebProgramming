@@ -32,6 +32,15 @@
 }
 
 .end-score{
-    font-size: 40px;
-    padding-bottom: 20px;
+    font-size: 4em;
+    padding-bottom: 0.2em;
+}
+
+.link {
+    color:#FFF;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.link:hover {
+    color: #FFF;
 }

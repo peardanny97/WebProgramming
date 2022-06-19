@@ -93,6 +93,9 @@ function GameScreen(props) {
                     </motion.button>
                     <img src={foods[idx + 1].image} className="img-thumbnail" />
                 </div>
+                <div className="Hidden-box">
+                <img src={foods[idx + 2].image} className="img-thumbnail" />
+                </div>
             </div>
         );
     } else {
