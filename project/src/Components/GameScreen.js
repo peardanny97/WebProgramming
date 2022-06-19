@@ -8,8 +8,6 @@ import getFoodsData from "../useCase/getFoodsData";
 function GameScreen() {
     const [leftIdx, setLeftIdx] = useState(0); // index of left picture , 0~18
     const [rightIdx, setRightIdx] = useState(1); // index of right picture, 1~19
-    const [leftUrl, setLeftUrl] = useState(''); // index of left picture , 0~18
-    const [rightUrl, setRightUrl] = useState(''); // index of right picture, 1~19
     const [showHint, setShowHint] = useState(false);
     const [score, setScore] = useState(0);
     const [foods, setFoods] = useState([]);
@@ -23,9 +21,7 @@ function GameScreen() {
             if (foods[rightIdx].price >= foods[leftIdx].price) {
                 // Correct
                 setLeftIdx(leftIdx + 1);
-                setLeftUrl(foods[leftIdx + 1].image);
                 setRightIdx(rightIdx + 1);
-                setRightUrl(foods[rightIdx + 1].image);
                 setScore(score+1);
                 
             } else {
@@ -36,9 +32,7 @@ function GameScreen() {
             if (foods[rightIdx].price <= foods[leftIdx].price) {
                 // Correct
                 setLeftIdx(leftIdx + 1);
-                setLeftUrl(foods[leftIdx + 1].image);
                 setRightIdx(rightIdx + 1);
-                setRightUrl(foods[rightIdx + 1].image);
                 setScore(score+1);
                 
             } else {
@@ -50,8 +44,6 @@ function GameScreen() {
     useEffect(() => {
         getFoodsData().then(res => {
             setFoods(res.sort(()=> Math.random() - 0.5));
-            setLeftUrl(res[0].image);
-            setRightUrl(res[1].image);
             setFoodsUpload(true);
             console.log("foodset");
         })
@@ -79,7 +71,7 @@ function GameScreen() {
                         <br/> {foods[leftIdx].price}원
                     </h2>
 
-                    <img src={leftUrl} className="img-thumbnail" />
+                    <img src={foods[leftIdx].image} className="img-thumbnail" />
                 </div>
 
                 <div className="Right-box">
@@ -112,7 +104,7 @@ function GameScreen() {
                     >
                         싸다!
                     </motion.button>
-                    <img src={rightUrl} className="img-thumbnail" />
+                    <img src={foods[rightIdx].image} className="img-thumbnail" />
                 </div>
                 <HintDialog
                     left={foods[leftIdx]}
