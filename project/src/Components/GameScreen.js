@@ -5,14 +5,14 @@ import "./GameScreen.css";
 import HintDialog from "./HintDialog";
 import getFoodsData from "../useCase/getFoodsData";
 
-function GameScreen() {
+function GameScreen(props) {
     const [idx, setIdx] = useState(0);
     const [showHint, setShowHint] = useState(false);
-    const [score, setScore] = useState(0);
+    // const [score, setScore] = useState(0);
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
 
-    console.log("rendering...");
+    console.log(props);
 
     const checkAnswer = (a) => {
         if (a === 0) {
@@ -20,20 +20,20 @@ function GameScreen() {
             if (foods[idx+1].price >= foods[idx].price) {
                 // Correct
                 setIdx(idx + 1);
-                setScore(score+1);
-                
+                // setScore(score+1);
+                props.changeScore(props.score.current + 1);
             } else {
-                alert("Game over!");
+                window.location.replace("/end");
             }
         } else {
             // user presses cheap button
             if (foods[idx+1].price <= foods[idx].price) {
                 // Correct
                 setIdx(idx+1)
-                setScore(score+1);
-                
+                // setScore(score+1);
+                props.changeScore(props.score.current + 1);
             } else {
-                alert("Game over!");
+                window.location.replace("/end");
             }
         }
     };
@@ -42,7 +42,6 @@ function GameScreen() {
         getFoodsData().then(res => {
             setFoods(res.sort(()=> Math.random() - 0.5));
             setFoodsUpload(true);
-            console.log("foodset");
         })
     }, []);
 
@@ -51,7 +50,7 @@ function GameScreen() {
         return (
             <div className="game-screen" style={{ background: "black" }}>
                 <div>
-                    <div className = "ScoreText">점수 &nbsp; {score}</div>
+                    <div className = "ScoreText">점수 &nbsp; {props.score.current}</div>
                     <button
                         className="Hint-button"
                         type="button"
