@@ -13,6 +13,8 @@ function App() {
     const [user, setUser] = useState(null);
     const score = useRef(0);
 
+    console.log("app start");
+
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
         if (user) {
