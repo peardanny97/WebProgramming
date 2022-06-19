@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import "./EndScreen.css";
 
 function EndScreen(props){
+    console.log(props);
     return (
         <div id="end-screen">
             <img src="img/1.png" className="end-background-img" />

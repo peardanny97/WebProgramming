@@ -9,6 +9,7 @@ function GreetingMessage({ user }) {
 }
 
 function MainScreen(props) {
+    console.log(props);
     return (
         <div id="main-screen">
             <img src="img/1.png" className="main-background-img" />

@@ -22,6 +22,10 @@ function App() {
         }
     });
 
+    function changeScore(n) {
+        score.current = n;
+    }
+
 
     return (
         <BrowserRouter>
@@ -29,7 +33,7 @@ function App() {
                 <Header user={user}/>
                 <Routes>
                     <Route exact path="/" element={<MainScreen user={user}/>} />
-                    <Route path="/game" element={ <GameScreen score={score}/>} />
+                    <Route path="/game" element={ <GameScreen score={score} changeScore={changeScore}/>} />
                     <Route path="/end" element={ <EndScreen user={user} score={score} />} />
                 </Routes>
             </div>
