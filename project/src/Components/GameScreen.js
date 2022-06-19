@@ -6,8 +6,7 @@ import HintDialog from "./HintDialog";
 import getFoodsData from "../useCase/getFoodsData";
 
 function GameScreen() {
-    const [leftIdx, setLeftIdx] = useState(0); // index of left picture , 0~18
-    const [rightIdx, setRightIdx] = useState(1); // index of right picture, 1~19
+    const [idx, setIdx] = useState(0);
     const [showHint, setShowHint] = useState(false);
     const [score, setScore] = useState(0);
     const [foods, setFoods] = useState([]);
@@ -18,10 +17,9 @@ function GameScreen() {
     const checkAnswer = (a) => {
         if (a === 0) {
             // this means user presses expensive button
-            if (foods[rightIdx].price >= foods[leftIdx].price) {
+            if (foods[idx+1].price >= foods[idx].price) {
                 // Correct
-                setLeftIdx(leftIdx + 1);
-                setRightIdx(rightIdx + 1);
+                setIdx(idx + 1);
                 setScore(score+1);
                 
             } else {
@@ -29,10 +27,9 @@ function GameScreen() {
             }
         } else {
             // user presses cheap button
-            if (foods[rightIdx].price <= foods[leftIdx].price) {
+            if (foods[idx+1].price <= foods[idx].price) {
                 // Correct
-                setLeftIdx(leftIdx + 1);
-                setRightIdx(rightIdx + 1);
+                setIdx(idx+1)
                 setScore(score+1);
                 
             } else {
@@ -67,15 +64,15 @@ function GameScreen() {
                 </div>
                 <div className="Left-box">
                     <h2 className="LeftText">
-                        {foods[leftIdx].title} 
-                        <br/> {foods[leftIdx].price}원
+                        {foods[idx].title} 
+                        <br/> {foods[idx].price}원
                     </h2>
 
-                    <img src={foods[leftIdx].image} className="img-thumbnail" />
+                    <img src={foods[idx].image} className="img-thumbnail" />
                 </div>
 
                 <div className="Right-box">
-                    <h2 className="RightText">{foods[rightIdx].title}</h2>
+                    <h2 className="RightText">{foods[idx+1].title}</h2>
                     <motion.button
                         className="Expensive-button"
                         type="button"
@@ -104,11 +101,11 @@ function GameScreen() {
                     >
                         싸다!
                     </motion.button>
-                    <img src={foods[rightIdx].image} className="img-thumbnail" />
+                    <img src={foods[idx+1].image} className="img-thumbnail" />
                 </div>
                 <HintDialog
-                    left={foods[leftIdx]}
-                    right={foods[rightIdx]}
+                    left={foods[idx]}
+                    right={foods[idx+1]}
                     handleClose={() => setShowHint(false)}
                     showHint={showHint}
                 />
