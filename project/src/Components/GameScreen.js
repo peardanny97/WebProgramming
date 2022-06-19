@@ -13,6 +13,8 @@ function GameScreen() {
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
 
+    console.log("rendering...");
+
     const checkAnswer = (a) => {
         if (a === 0) {
             // this means user presses expensive button

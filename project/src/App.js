@@ -4,17 +4,33 @@ import GameScreen from "./Components/GameScreen";
 import Header from "./Components/Header";
 import MainScreen from "./Components/MainScreen";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import EndScreen from "./Components/EndScreen";
+import {useState, useRef} from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
     const firebaseApp = app;
+    const [user, setUser] = useState(null);
+    const score = useRef(0);
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setUser(user);
+        } else {
+            setUser(null);
+        }
+    });
+
 
     return (
         <BrowserRouter>
             <div className="App">
-                <Header />
+                <Header user={user}/>
                 <Routes>
-                    <Route exact path="/" element={<MainScreen />} />
-                    <Route path="/game" element={ <GameScreen />} />
+                    <Route exact path="/" element={<MainScreen user={user}/>} />
+                    <Route path="/game" element={ <GameScreen score={score}/>} />
+                    <Route path="/end" element={ <EndScreen user={user} score={score} />} />
                 </Routes>
             </div>
         </BrowserRouter>
