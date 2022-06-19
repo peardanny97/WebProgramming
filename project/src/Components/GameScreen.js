@@ -1,15 +1,15 @@
 import { useEffect, useState, useRef } from "react";
-import { Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./GameScreen.css";
+import { useNavigate } from "react-router-dom"; 
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
 
 function GameScreen(props) {
     const [idx, setIdx] = useState(0);
-    // const [score, setScore] = useState(0);
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
+    const navigate = useNavigate();
 
     console.log("rendering...");
 
@@ -19,20 +19,18 @@ function GameScreen(props) {
             if (foods[idx + 1].price >= foods[idx].price) {
                 // Correct
                 setIdx(idx + 1);
-                // setScore(score+1);
                 props.changeScore(props.score.current + 1);
             } else {
-                window.location.replace("/end");
+                navigate("../end");
             }
         } else {
             // user presses cheap button
             if (foods[idx + 1].price <= foods[idx].price) {
                 // Correct
                 setIdx(idx + 1);
-                // setScore(score+1);
                 props.changeScore(props.score.current + 1);
             } else {
-                window.location.replace("/end");
+                navigate("../end");
             }
         }
     };
@@ -41,8 +39,15 @@ function GameScreen(props) {
         getFoodsData().then((res) => {
             setFoods(res.sort(() => Math.random() - 0.5));
             setFoodsUpload(true);
+            props.changeScore(0);
         });
     }, []);
+
+    useEffect(()=>{
+        if(foods.length !== 0 && idx === foods.length ){
+            navigate("../end");
+        }
+    }, [idx])
 
     if (foodsUpload) {
         return (

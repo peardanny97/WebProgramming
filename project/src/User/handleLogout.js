@@ -7,6 +7,7 @@ function handleLogout() {
         .then(() => {
             // Sign-out successful.
             console.log('logout');
+            window.location.replace("/");
         })
         .catch((error) => {
             // An error happened.
