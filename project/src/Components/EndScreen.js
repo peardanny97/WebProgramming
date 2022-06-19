@@ -9,7 +9,6 @@ function EndScreen(props){
                 <div className="end-content">
                     <div className="end-score">Score : {props.score.current} 개</div>
                     <Link to="/">메인으로</Link>
-                    {/*<AddFoodsDirectly />*/}
                 </div>
             </div>
         </div>
