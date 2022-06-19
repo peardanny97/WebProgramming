@@ -8,6 +8,7 @@ function LoginsUserInform({ user }) {
     return (
         <>
             <h1 className="header-user-name">{user.displayName}</h1>
+            
             <button className="Logout" onClick={handleLogout}>
                 로그아웃
             </button>
@@ -21,7 +22,7 @@ function UserInform(props) {
             {props.user ? (
                 <LoginsUserInform user={props.user} />
             ) : (
-                <button className="Login" onClick={handleLogin}>
+                <button className="Logout" onClick={handleLogin}>
                     로그인
                 </button>
             )}

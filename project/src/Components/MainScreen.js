@@ -23,12 +23,14 @@ function MainScreen(props) {
                     )}
 
                     <div className="game-discription">
-                        더 비싼 음식을 고르는 게임
+                        당신의 먹잘알 지수는?
                     </div>
                     {props.user ? (
-                        <Link to="/game">게임 시작하기</Link>
+                        <Link to="/game" className="link">
+                            <div className="game-discription">게임 시작하기</div>
+                        </Link>
                     ) : (
-                        <button onClick={handleLogin}>로그인하기</button>
+                        <button onClick={handleLogin} className = "Login-button">로그인하기</button>
                     )}
 
                     {/*<AddFoodsDirectly />*/}

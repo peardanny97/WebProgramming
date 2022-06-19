@@ -32,11 +32,67 @@
 }
 
 .main-user-name{
-    font-size: 50px;
-    padding-bottom: 20px;
+    font-size: 3.125em;
+    padding-bottom: 0.8em;
+    font-weight: 600;
 }
 
 .game-discription{
-    font-size:30px;
-    padding-bottom:30px;
+    font-size:1.875em;
+    padding-bottom:1em;
+    font-weight: 550;
 }
+
+.link {
+    color:#FFF;
+    text-decoration: none;
+}
+.link:hover {
+    color: #FFF;
+}
+
+.Login-button {
+    position: absolute;
+    appearance: none;
+    background-color: transparent;
+    border: 0.2em solid #CB2027;
+    border-radius: 0.75em;
+    box-sizing: border-box;
+    color: #CB2027;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.7em;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    outline: none;
+    padding: 0.4em 1em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 10em;
+    height: 2.5em;
+    will-change: transform;
+    top: 61%;
+    
+    z-index: 1;
+  }
+  
+  .Login-button:disabled {
+    pointer-events: none;
+  }
+  
+  .Login-button:hover {
+    color: #fff;
+    background-color: #CB2027;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .Login-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }

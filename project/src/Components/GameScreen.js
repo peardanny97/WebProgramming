@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./GameScreen.css";
 import HintDialog from "./HintDialog";
 import getFoodsData from "../useCase/getFoodsData";
-// import { motion } from "framer-motion";
 
 function GameScreen() {
     const [leftIdx, setLeftIdx] = useState(0); // index of left picture , 0~18
@@ -10,6 +11,7 @@ function GameScreen() {
     const [leftUrl, setLeftUrl] = useState(''); // index of left picture , 0~18
     const [rightUrl, setRightUrl] = useState(''); // index of right picture, 1~19
     const [showHint, setShowHint] = useState(false);
+    const [score, setScore] = useState(0);
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
 
@@ -24,8 +26,10 @@ function GameScreen() {
                 setLeftUrl(foods[leftIdx + 1].image);
                 setRightIdx(rightIdx + 1);
                 setRightUrl(foods[rightIdx + 1].image);
+                setScore(score+1);
+                
             } else {
-                alert("Wrong!"); // we need to insert link to game over screen here
+                alert("Game over!");
             }
         } else {
             // user presses cheap button
@@ -35,8 +39,10 @@ function GameScreen() {
                 setLeftUrl(foods[leftIdx + 1].image);
                 setRightIdx(rightIdx + 1);
                 setRightUrl(foods[rightIdx + 1].image);
+                setScore(score+1);
+                
             } else {
-                alert("Wrong!"); // we need to isnert link to game over screen here
+                alert("Game over!");
             }
         }
     };
@@ -54,19 +60,23 @@ function GameScreen() {
 
     if (foodsUpload) {
         return (
-            <div className="game-screen" style={{ background: "dimgray" }}>
-                <button
-                    className="Hint-button"
-                    type="button"
-                    onClick={() => {
-                        setShowHint(true);
-                    }}
-                >
-                    힌트
-                </button>
+            <div className="game-screen" style={{ background: "black" }}>
+                <div>
+                    <div className = "ScoreText">점수 &nbsp; {score}</div>
+                    <button
+                        className="Hint-button"
+                        type="button"
+                        onClick={() => {
+                            setShowHint(true);
+                        }}
+                    >
+                        힌트
+                    </button>
+                </div>
                 <div className="Left-box">
                     <h2 className="LeftText">
-                        {foods[leftIdx].title} &nbsp;&nbsp; {foods[leftIdx].price}원
+                        {foods[leftIdx].title} 
+                        <br/> {foods[leftIdx].price}원
                     </h2>
 
                     <img src={leftUrl} className="img-thumbnail" />
@@ -74,24 +84,34 @@ function GameScreen() {
 
                 <div className="Right-box">
                     <h2 className="RightText">{foods[rightIdx].title}</h2>
-                    <button
+                    <motion.button
                         className="Expensive-button"
                         type="button"
+                        whileHover={{
+                            scale:1.1,
+                            textShadow: "0em 0em 0.2em rgb(255,255,255)",
+                            boxShadow: "0em 0em 0.2em rgb(255,255,255)",
+                        }}
                         onClick={() => {
                             checkAnswer(0);
                         }}
                     >
                         비싸다!
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                         className="Cheap-button"
                         type="button"
+                        whileHover={{
+                            scale:1.1,
+                            textShadow: "0em 0em 0.2em rgb(255,255,255)",
+                            boxShadow: "0em 0em 0.2em rgb(255,255,255)",
+                        }}
                         onClick={() => {
                             checkAnswer(1);
                         }}
                     >
                         싸다!
-                    </button>
+                    </motion.button>
                     <img src={rightUrl} className="img-thumbnail" />
                 </div>
                 <HintDialog

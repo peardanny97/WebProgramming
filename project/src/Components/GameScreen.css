@@ -1,10 +1,10 @@
-
 img {
   width:100px;
   height:100px;
   resizeMode: "cover";
 }
 .game-screen {
+  background-color: black;
   width: 100%;
   height: 90vh;
 }
@@ -13,61 +13,247 @@ img {
   width: 50%;
   float: left;
   box-sizing: border-box;
+  text-align: center;
+  justify-content: center;
   height: 100%;
 }
 .Right-box {
   display: flex;
   width: 50%;
   float: right;
+  justify-content: center;
   box-sizing: border-box;
   height: 100%;
 }
 .img-thumbnail {
+  position: relative;
   width:100%;
   height:100%;
+  top: -10%;
   object-fit: contain;
+  filter:brightness(70%);
+  z-index: 0;
 }
-.Expensive-button {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  top: 40%;
-  margin-top:-50px;
-  left: 50%;
-  margin-left:-50px;
-  background-color:transparent;
-  color:white;
-  border-color: white;
-  border-width: 5pt;
-  font-size: 15pt;
-}
-.Cheap-button {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  top: 60%;
-  margin-top:-50px;
-  left: 50%;
-  margin-left:-50px;
-  background-color:transparent;
-  color:white;
-  border-color: white;
-  border-width: 5pt;
-  font-size: 15pt;
+.ScoreText{
+  color:whitesmoke;
+  position: absolute;
+  font-weight: 600;
+  font-size: 2em;
+  margin-left: 1em;
 }
 .LeftText{
-    position: absolute;
-    color:whitesmoke;
+  position: absolute;
+  top:40%;
+  font-size: 3em;
+  color:whitesmoke;
+  z-index: 2;
 }
 .RightText{
-    position: absolute;
-    color:whitesmoke;
+  top:40%;
+  font-size: 3em;
+  position: absolute;
+  color:whitesmoke;
+  z-index: 2;
+}
+.Expensive-button {
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  border: 0.2em solid #55ACEE;
+  border-radius: 0.75em;
+  box-sizing: border-box;
+  color: #55ACEE;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.7em;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  padding: 0.4em 1em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 7em;
+  height: 2.5em;
+  will-change: transform;
+  top: 60%;
+  /* left: 65%; */
+  margin-left: -10em;
+  z-index: 1;
+}
+
+.Expensive-button:disabled {
+  pointer-events: none;
+}
+
+.Expensive-button:hover {
+  color: #fff;
+  background-color: #55ACEE;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.Expensive-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.Cheap-button {
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  border: 0.2em solid #95D03A;
+  border-radius: 0.75em;
+  box-sizing: border-box;
+  color: #95D03A;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.7em;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  padding: 0.4em 1em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 7em;
+  height: 2.5em;
+  will-change: transform;
+  top: 60%;
+  margin-left: 10em;
+  z-index: 1;
+}
+
+.Cheap-button:disabled {
+  pointer-events: none;
+}
+
+.Cheap-button:hover {
+  color: #fff;
+  background-color: #95D03A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.Cheap-button:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 .Hint-button {
-    position: relative;
-    display: flex;
-    height: 50px;
-    left: 70%;
-    font-size: 15pt;
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 1.3em;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 0.5em 1em;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 10em;
+  word-break: keep-all;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .Hint-button {
+    padding: 19px 32px;
+  }
+}
+
+.Hint-button:before,
+.Hint-button:after {
+  border-radius: 80px;
+}
+
+.Hint-button:before {
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.Hint-button:after {
+  background-color: initial;
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.Hint-button:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
+}
+
+.Hint-button:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.Hint-button:active:not(:disabled) {
+  color: #ccc;
+}
+
+.Hint-button:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.Hint-button:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.Hint-button:disabled {
+  cursor: default;
+  opacity: .24;
 }
