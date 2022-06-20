@@ -1,6 +1,6 @@
 import {doc, setDoc, getFirestore} from "firebase/firestore";
 
-function setUser(email, classicHighScore, timeAttackHighScore) {
+function postUser(email, classicHighScore, timeAttackHighScore) {
     const db = getFirestore();
     setDoc(doc(db, "user", "email"), {
         classicHighScore : classicHighScore,
@@ -10,4 +10,4 @@ function setUser(email, classicHighScore, timeAttackHighScore) {
     })
 }
 
-export default setUser;
+export default postUser;

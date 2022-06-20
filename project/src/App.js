@@ -28,7 +28,6 @@ function App() {
         score.current = n;
     }
 
-
     return (
         <BrowserRouter>
             <div className="App">
