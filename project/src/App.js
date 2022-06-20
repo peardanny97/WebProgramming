@@ -3,6 +3,7 @@ import app from "./FirebaseApp";
 import GameScreen from "./Components/GameScreen";
 import Header from "./Components/Header";
 import MainScreen from "./Components/MainScreen";
+import TimeAttack from "./Components/TimeAttack";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import EndScreen from "./Components/EndScreen";
 import {useState, useRef} from "react";
@@ -35,6 +36,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<MainScreen user={user}/>} />
                     <Route path="/game" element={ <GameScreen score={score} changeScore={changeScore}/>} />
+                    <Route path="/timeattack" element={ <TimeAttack score={score} changeScore={changeScore}/>} />
                     <Route path="/end" element={ <EndScreen user={user} score={score} />} />
                 </Routes>
             </div>

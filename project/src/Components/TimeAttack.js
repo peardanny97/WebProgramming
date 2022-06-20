@@ -5,32 +5,52 @@ import { useNavigate } from "react-router-dom";
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
 
-function GameScreen(props) {
+
+
+function TimeAttack(props) {
     const [idx, setIdx] = useState(0);
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
     const navigate = useNavigate();
+    const [handleStart, setHandleStart] = useState(true);
+    const [handlePenalty, setHandlePenalty] = useState(false);
+    const [handleReset, setHandleReset] = useState(false);
 
-    console.log("rendering...");
 
     const checkAnswer = (a) => {
         if (a === 0) {
             // this means user presses expensive button
             if (foods[idx + 1].price >= foods[idx].price) {
                 // Correct
+                if(idx+1 === 15){  // game clear
+                    setHandlePenalty(false);
+                    setHandleReset(true);
+                    setHandleStart(false);
+                    navigate("../end");  // end시 시간 출력하도록 수정 필요
+                }
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setHandlePenalty(false);
             } else {
-                navigate("../end");
+                setHandlePenalty(true);
+                
             }
         } else {
             // user presses cheap button
             if (foods[idx + 1].price <= foods[idx].price) {
                 // Correct
+                if(idx+1 === 15){  // game clear
+                    setHandlePenalty(false);
+                    setHandleReset(true);
+                    setHandleStart(false);
+                    navigate("../end");  // end시 시간 출력하도록 수정 필요
+                }
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setHandlePenalty(false);
             } else {
-                navigate("../end");
+                setHandlePenalty(true);
+                
             }
         }
     };
@@ -48,13 +68,18 @@ function GameScreen(props) {
             navigate("../end");
         }
     }, [idx])
-
+   
     if (foodsUpload) {
         return (
             <div className="game-screen" style={{ background: "black" }}>
+                
+
                 <StateWindow 
-                isTimeAttack = {false}
-                score={props.score} idx={idx} foods={foods} />
+                handleStart = {handleStart}
+                handlePenalty = {handlePenalty}
+                handleReset = {handleReset}
+                isTimeAttack = {true}
+                idx={idx} foods={foods} />
                 <div className="Left-box">
                     <h2 className="LeftText">
                         {foods[idx].title}
@@ -95,6 +120,7 @@ function GameScreen(props) {
                     </motion.button>
                     <img src={foods[idx + 1].image} className="img-thumbnail" />
                 </div>
+                
                 <div className="Hidden-box">
                     <img src={foods[idx + 2].image} className="img-thumbnail" />
                 </div>
@@ -110,4 +136,4 @@ function GameScreen(props) {
         return <h2>로딩 중</h2>;
     }
 }
-export default GameScreen;
+export default TimeAttack;

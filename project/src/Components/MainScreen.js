@@ -2,6 +2,7 @@ import "./MainScreen.css";
 import { Link } from "react-router-dom";
 import handleLogin from "../User/handleLogin";
 import AddFoodsDirectly from "../admin/addFoodsDirectly";
+import { motion } from "framer-motion";
 
 function GreetingMessage({ user }) {
     return (
@@ -28,14 +29,43 @@ function MainScreen(props) {
                         당신의 먹잘알 지수는?
                     </div>
                     {props.user ? (
-                        <Link to="/game" className="link">
-                            <div className="game-discription">게임 시작하기</div>
-                        </Link>
+                        // <Link to="/timeattack" className="link">
+                        //     <div className="game-discription">게임 시작하기</div>
+                        // </Link>
+                    <Link to="/timeattack" className="link">    
+                        <motion.button
+                            className="Timeattack-button"
+                            type="button"
+                            whileHover={{
+                                scale: 1.1,
+                                textShadow: "0em 0em 0.2em rgb(255,255,255)",
+                                boxShadow: "0em 0em 0.2em rgb(255,255,255)",
+                            }}
+                            >
+                                타임 어택
+                            </motion.button>
+                    </Link>
                     ) : (
                         <button onClick={handleLogin} className = "Login-button">로그인하기</button>
                     )}
-
-                    {/*<AddFoodsDirectly />*/}
+                    {props.user ? (
+                        <Link to="/game" className="link">
+                            <motion.button
+                            className="Classic-button"
+                            type="button"
+                            whileHover={{
+                                scale: 1.1,
+                                textShadow: "0em 0em 0.2em rgb(255,255,255)",
+                                boxShadow: "0em 0em 0.2em rgb(255,255,255)",
+                            }}
+                            >
+                                클래식
+                            </motion.button>
+                        </Link>
+                    
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </div>

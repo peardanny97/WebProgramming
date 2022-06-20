@@ -32,14 +32,15 @@
 }
 
 .main-user-name{
-    font-size: 3.125em;
-    padding-bottom: 0.8em;
+    margin-top: -30vh;
+    font-size: 3vw;
+    padding-bottom: 3vh;
     font-weight: 600;
 }
 
 .game-discription{
-    font-size:1.875em;
-    padding-bottom:1em;
+    font-size:2vw;
+    padding-bottom:5vh;
     font-weight: 550;
 }
 
@@ -55,29 +56,28 @@
     position: absolute;
     appearance: none;
     background-color: transparent;
-    border: 0.2em solid #CB2027;
-    border-radius: 0.75em;
+    border: 0.4vw solid #CB2027;
+    border-radius: 1.5vw;
     box-sizing: border-box;
     color: #CB2027;
     cursor: pointer;
     display: inline-block;
-    font-size: 1.7em;
+    font-size: 2.5vw;
     font-weight: 600;
     line-height: normal;
     margin: 0;
     outline: none;
-    padding: 0.4em 1em;
+    padding: 0.8vh 2vw;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 10em;
-    height: 2.5em;
+    width: 20vw;
+    height: 10vh;
     will-change: transform;
-    top: 61%;
-    
+    top: 50%;
     z-index: 1;
   }
   
@@ -93,6 +93,100 @@
   }
   
   .Login-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  .Timeattack-button {
+    position: absolute;
+    appearance: none;
+    background-color: transparent;
+    border: 0.4vw solid #55ACEE;
+    border-radius: 1.5vw;
+    box-sizing: border-box;
+    color: #55ACEE;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.5vw;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    outline: none;
+    padding: 0.8vh 2vw;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 17vw;
+    height: 10vh;
+    will-change: transform;
+    top: 50%;
+    /* left: 65%; */
+    margin-left: -23vw;
+    z-index: 1;
+  }
+  
+  .Timeattack-button:disabled {
+    pointer-events: none;
+  }
+  
+  .Timeattack-button:hover {
+    color: #fff;
+    background-color: #55ACEE;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .Timeattack-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  .Classic-button {
+    position: absolute;
+    appearance: none;
+    background-color: transparent;
+    border: 0.4vw solid#95D03A;
+    border-radius: 1.5vw;
+    box-sizing: border-box;
+    color: #95D03A;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.5vw ;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    outline: none;
+    padding: 0.8vh 2vw;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 17vw;
+    height: 10vh;
+    will-change: transform;
+    top: 50%;
+    /* left: 65%; */
+    margin-left: 3vw;
+    z-index: 1;
+  }
+  
+  .Classic-button:disabled {
+    pointer-events: none;
+  }
+  
+  .Classic-button:hover {
+    color: #fff;
+    background-color: #95D03A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .Classic-button:active {
     box-shadow: none;
     transform: translateY(0);
   }
