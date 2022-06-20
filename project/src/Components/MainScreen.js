@@ -1,17 +1,26 @@
 import "./MainScreen.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import handleLogin from "../User/handleLogin";
 import AddFoodsDirectly from "../admin/addFoodsDirectly";
 import { motion } from "framer-motion";
+import React from "react";
+
+
 
 function GreetingMessage({ user }) {
     return (
         <div className="main-user-name">{user.displayName} 님 환영합니다.</div>
     );
 }
-
+const showM = () => {
+    console.log("hi?")
+}
 function MainScreen(props) {
     console.log(props);
+    const [showClassicRule, setShowClassicRule] = useState(false);
+    const [showTimeAttackRule, setshowTimeAttackRule] = useState(false);
+
     return (
         <div id="main-screen">
             <img src="img/1.png" className="main-background-img" />
@@ -36,6 +45,12 @@ function MainScreen(props) {
                         <motion.button
                             className="Timeattack-button"
                             type="button"
+                            onMouseOver = {
+                                ()=>setshowTimeAttackRule(true)
+                            }
+                            onMouseOut = {
+                                ()=>setshowTimeAttackRule(false)
+                            }
                             whileHover={{
                                 scale: 1.1,
                                 textShadow: "0em 0em 0.2em rgb(255,255,255)",
@@ -46,13 +61,30 @@ function MainScreen(props) {
                             </motion.button>
                     </Link>
                     ) : (
-                        <button onClick={handleLogin} className = "Login-button">로그인하기</button>
+                        <motion.button
+                            className="Login-button"
+                            type="button"
+                            onClick={handleLogin}
+                            whileHover={{
+                                scale: 1.1,
+                                textShadow: "0em 0em 0.2em rgb(255,255,255)",
+                                boxShadow: "0em 0em 0.2em rgb(255,255,255)",
+                            }}
+                            >
+                                로그인하기
+                            </motion.button>
                     )}
                     {props.user ? (
                         <Link to="/game" className="link">
                             <motion.button
                             className="Classic-button"
                             type="button"
+                            onMouseOver = {
+                                ()=>setShowClassicRule(true)
+                            }
+                            onMouseOut = {
+                                ()=>setShowClassicRule(false)
+                            }
                             whileHover={{
                                 scale: 1.1,
                                 textShadow: "0em 0em 0.2em rgb(255,255,255)",
@@ -66,6 +98,20 @@ function MainScreen(props) {
                     ) : (
                         <></>
                     )}
+                    {showClassicRule?
+                    <div className="rule-discription">
+                        틀리지 않고 최대한 많이 맞춰보세요! <br/>
+                        오른쪽 메뉴가 더 비쌀까 쌀까?
+                    </div>:
+                    <></>
+                    }
+                    {showTimeAttackRule?
+                    <div className="rule-discription">
+                        최대한 빨리 15개를 맞춰보세요! <br/>
+                        틀리면 패널티 10초이니 광클 금지!
+                    </div>:
+                    <></>
+                    }
                 </div>
             </div>
         </div>
