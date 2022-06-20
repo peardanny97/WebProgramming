@@ -4,11 +4,15 @@ import "./GameScreen.css";
 import { useNavigate } from "react-router-dom"; 
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
+import {CorrectButton, WrongButton} from "./ResultButton";
 
 function GameScreen(props) {
     const [idx, setIdx] = useState(0);
     const [foods, setFoods] = useState([]);
     const [foodsUpload, setFoodsUpload] = useState(false);
+    const [correctOpen, setCorrectOpen] = useState(false);
+    const [wrongOpen, setWrongOpen] = useState(false);
+    
     const navigate = useNavigate();
 
     console.log("rendering...");
@@ -20,8 +24,11 @@ function GameScreen(props) {
                 // Correct
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setCorrectOpen(true);
             } else {
-                navigate("../end");
+                setWrongOpen(true);
+                setTimeout(()=>{navigate("../end");}, 1500);
+                
             }
         } else {
             // user presses cheap button
@@ -29,8 +36,11 @@ function GameScreen(props) {
                 // Correct
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setCorrectOpen(true);
             } else {
-                navigate("../end");
+                setWrongOpen(true);
+                setTimeout(()=>{navigate("../end");}, 1500);
+                
             }
         }
     };
@@ -52,6 +62,8 @@ function GameScreen(props) {
     if (foodsUpload) {
         return (
             <div className="game-screen" style={{ background: "black" }}>
+                <CorrectButton open={correctOpen} setOpen={setCorrectOpen} />
+                <WrongButton open={wrongOpen} setOpen={setWrongOpen} />
                 <StateWindow 
                 isTimeAttack = {false}
                 score={props.score} idx={idx} foods={foods} />
