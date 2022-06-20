@@ -47,7 +47,7 @@ function GameScreen(props) {
         if(foods.length !== 0 && idx === foods.length ){
             navigate("../end");
         }
-    }, [idx])
+    }, [idx]) // all correct case
 
     if (foodsUpload) {
         return (
