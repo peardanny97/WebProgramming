@@ -44,6 +44,12 @@
     font-weight: 550;
 }
 
+.rule-discription{
+  position: absolute;
+  top: 70%;
+  font-size:2vw;
+}
+
 .link {
     color:#FFF;
     text-decoration: none;
