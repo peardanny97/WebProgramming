@@ -4,7 +4,7 @@ import "./GameScreen.css";
 import { useNavigate } from "react-router-dom"; 
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
-import {CorrectButton, WrongButton} from "./ResultButton";
+import { CorrectButton, WrongButton } from "./ResultButton";
 
 function GameScreen(props) {
     const [idx, setIdx] = useState(0);

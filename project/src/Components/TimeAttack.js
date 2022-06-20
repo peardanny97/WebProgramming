@@ -1,11 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import "./GameScreen.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
-
-
+import { CorrectButton, WrongButton } from "./ResultButton";
 
 function TimeAttack(props) {
     const [idx, setIdx] = useState(0);
@@ -15,42 +14,49 @@ function TimeAttack(props) {
     const [handleStart, setHandleStart] = useState(true);
     const [handlePenalty, setHandlePenalty] = useState(false);
     const [handleReset, setHandleReset] = useState(false);
-
+    const [correctOpen, setCorrectOpen] = useState(false);
+    const [wrongOpen, setWrongOpen] = useState(false);
 
     const checkAnswer = (a) => {
         if (a === 0) {
             // this means user presses expensive button
             if (foods[idx + 1].price >= foods[idx].price) {
                 // Correct
-                if(idx+1 === 15){  // game clear
+                if (idx + 1 === 15) {
+                    // game clear
                     setHandlePenalty(false);
                     setHandleReset(true);
                     setHandleStart(false);
-                    navigate("../end");  // end시 시간 출력하도록 수정 필요
+                    setCorrectOpen(true);
+                    navigate("../end"); // end시 시간 출력하도록 수정 필요
                 }
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setCorrectOpen(true);
                 setHandlePenalty(false);
             } else {
+                setWrongOpen(true);
                 setHandlePenalty(true);
-                
             }
         } else {
             // user presses cheap button
             if (foods[idx + 1].price <= foods[idx].price) {
                 // Correct
-                if(idx+1 === 15){  // game clear
+                if (idx + 1 === 15) {
+                    // game clear
                     setHandlePenalty(false);
                     setHandleReset(true);
                     setHandleStart(false);
-                    navigate("../end");  // end시 시간 출력하도록 수정 필요
+                    setCorrectOpen(true);
+                    navigate("../end"); // end시 시간 출력하도록 수정 필요
                 }
                 setIdx(idx + 1);
                 props.changeScore(props.score.current + 1);
+                setCorrectOpen(true);
                 setHandlePenalty(false);
             } else {
+                setWrongOpen(true);
                 setHandlePenalty(true);
-                
             }
         }
     };
@@ -63,23 +69,26 @@ function TimeAttack(props) {
         });
     }, []);
 
-    useEffect(()=>{
-        if(foods.length !== 0 && idx === foods.length ){
+    useEffect(() => {
+        if (foods.length !== 0 && idx === foods.length) {
             navigate("../end");
         }
-    }, [idx])
-   
+    }, [idx]);
+
     if (foodsUpload) {
         return (
             <div className="game-screen" style={{ background: "black" }}>
-                
+                <CorrectButton open={correctOpen} setOpen={setCorrectOpen} />
+                <WrongButton open={wrongOpen} setOpen={setWrongOpen} />
 
-                <StateWindow 
-                handleStart = {handleStart}
-                handlePenalty = {handlePenalty}
-                handleReset = {handleReset}
-                isTimeAttack = {true}
-                idx={idx} foods={foods} />
+                <StateWindow
+                    handleStart={handleStart}
+                    handlePenalty={handlePenalty}
+                    handleReset={handleReset}
+                    isTimeAttack={true}
+                    idx={idx}
+                    foods={foods}
+                />
                 <div className="Left-box">
                     <h2 className="LeftText">
                         {foods[idx].title}
@@ -120,7 +129,7 @@ function TimeAttack(props) {
                     </motion.button>
                     <img src={foods[idx + 1].image} className="img-thumbnail" />
                 </div>
-                
+
                 <div className="Hidden-box">
                     <img src={foods[idx + 2].image} className="img-thumbnail" />
                 </div>
