@@ -32,13 +32,13 @@
 }
 
 .end-score{
-    font-size: 4em;
-    padding-bottom: 0.2em;
+    font-size: 3.8vw;
+    padding-bottom: 0.6vh;
 }
 
 .link {
     color:#FFF;
-    font-size: 1.5em;
+    font-size: 1.5vw;
     text-decoration: none;
 }
 .link:hover {

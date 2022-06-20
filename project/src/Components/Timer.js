@@ -2,7 +2,7 @@ import React from "react";
   
 export default function Timer(props) {
   return (
-    <div className="timer" style={{color : "white", fontSize: "2em", display: "flex", position:"relative"}}>
+    <div className="timer" style={{color : "white", fontSize: "3vw", display: "flex", position:"relative"}}>
       <span className="digits">
         {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
       </span>

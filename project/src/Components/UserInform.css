@@ -1,30 +1,28 @@
 .UserInform{
   width: 70vw;
   height :100%;
-  padding-right:2vw;
+  padding-right:1vw;
   display:flex;
   justify-content: right;
 }
 
 .header-user-name{
-  padding-right: 2em;
+  padding-right: 2vw;
 }
 
 /* CSS */
 .Logout {
 
-background-color: #FFFFFF;
-margin-top: 2.5vh;
-height: 5vh;
+background-color: black;
+position: relative;
+height: auto;
 border: 0;
 border-radius: 0.7vw;
 box-sizing: border-box;
-color: #111827;
+color: white;
 font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-font-size: 0.9rem;
+font-size: 0.8vw;
 font-weight: 700;
-line-height: 1.25rem;
-padding: 0.5vh 1vw;
 text-align: center;
 text-decoration: none #D1D5DB solid;
 text-decoration-thickness: auto;
@@ -35,7 +33,8 @@ touch-action: manipulation;
 }
 
 .Logout:hover {
-background-color: rgb(249,250,251);
+background-color: white;
+color:black;
 }
 
 .Logout:focus {

@@ -6,11 +6,11 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    font-size: 1.1em;
+    font-size: 0.9vw;
 }
 
 #title{
     color:white;
-    margin-left:2vw;
+    margin-left:1.5vw;
 }
 

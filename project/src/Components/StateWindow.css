@@ -13,12 +13,11 @@
   flex-direction: row;
   flex-shrink: 0;
   font-family: Eina01,sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2vw;
   font-weight: 800;
   justify-content: center;
   line-height: 24px;
   margin: 0;
-  min-height: 64px;
   outline: none;
   overflow: visible;
   padding: 0.5em 1em;
@@ -31,7 +30,8 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
-  width: 10em;
+  width: 10vw;
+  height: auto;
   word-break: keep-all;
   z-index: 2;
 }
@@ -113,15 +113,15 @@
   color:whitesmoke;
   position: absolute;
   font-weight: 600;
-  font-size: 2em;
-  margin-left: 1em;
+  font-size: 2.5vw;
+  margin-left: 1.5vw;
 }
 
-.HintText{
+.PenaltyText{
   color:whitesmoke;
   position: absolute;
   font-weight: 600;
-  font-size: 2em;
-  margin-left: 9.2em;
-  margin-top: 1.3em;
+  font-size: 1.7vw;
+  margin-left: 14vw;
+  margin-top: 4.7vh;
 }

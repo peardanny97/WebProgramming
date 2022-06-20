@@ -27,7 +27,7 @@ function StateWindow(props) {
                 
                 {
                         props.handlePenalty?
-                        <motion.div className="HintText" 
+                        <motion.div className="PenaltyText" 
                         animate = {{y:-20}}
                         transition={{type:'spring', stiffness:300}}>
                             +10s
