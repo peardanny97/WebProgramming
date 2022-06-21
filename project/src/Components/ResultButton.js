@@ -1,10 +1,13 @@
 import "./ResultButton.css";
 import { Backdrop } from "@mui/material";
+import { useEffect } from "react";
 
 function ResultButton(props) {
-    setTimeout(() => {
-        props.setOpen(false);
-    }, 1500);
+    useEffect(() => {
+        setTimeout(() => {
+            props.setOpen(false);
+        }, 1000);
+    }, [props.open]);
 
     return (
         <Backdrop
@@ -21,7 +24,10 @@ function CorrectButton(props) {
         <ResultButton
             {...props}
             component={
-                <div className="result-alert" style={{backgroundColor:"green"}}>
+                <div
+                    className="result-alert"
+                    style={{ backgroundColor: "green" }}
+                >
                     정답!
                 </div>
             }
@@ -29,12 +35,15 @@ function CorrectButton(props) {
     );
 }
 
-function WrongButton(props){
+function WrongButton(props) {
     return (
         <ResultButton
             {...props}
             component={
-                <div className="result-alert" style={{backgroundColor:"red"}}>
+                <div
+                    className="result-alert"
+                    style={{ backgroundColor: "red" }}
+                >
                     오답!
                 </div>
             }
