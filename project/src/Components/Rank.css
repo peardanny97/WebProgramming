@@ -1,0 +1,10 @@
+.ranking {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ranking-element {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+}

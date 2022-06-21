@@ -23,7 +23,7 @@
 
 .end-content{
     margin: 0 auto;
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -43,4 +43,10 @@
 }
 .link:hover {
     color: #FFF;
+}
+.ranks {
+    border: 1px solid white;
+    width: 70%;
+    padding-bottom: 3%;
+    font-size: 1.4vw;
 }

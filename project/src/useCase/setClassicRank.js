@@ -21,36 +21,29 @@ function setClassicRank(name, score) {
     const db = getFirestore();
     return getClassicRank()
         .then(currentClassicRankData => {
-        if (currentClassicRankData[0][String(5)].score >= score) {
-            return currentClassicRankData[0];
-        } else {
-            const classicRank = {};
+            const classicRank = new Array(5);
             for(let i = 1; i <= 5; i++) {
-                console.log(currentClassicRankData[0][String(i)].score < score);
                 if (Number(currentClassicRankData[0][String(i)].score) < score) {
-
                     for(let j = 5; j >= i + 1; j--) {
-                        classicRank[String(j)] = currentClassicRankData[0][String(j-1)];
+                        classicRank[String(j-1)] = currentClassicRankData[0][String(j-1)];
                     }
-                    classicRank[String(i)] = {
+                    classicRank[String(i-1)] = {
                         user: name,
                         score: score
                     }
-                    console.log(classicRank);
                     updateDoc(doc(db, "classic_rank", "classic_rank"), classicRank)
                         .then(() => {
                             console.log("classic_rank update");
                         })
                     return classicRank;
                 } else {
-                    classicRank[i.toString()] = currentClassicRankData[0][i.toString()];
+                    classicRank[String(i-1)] = currentClassicRankData[0][String(i)];
                 }
             }
-        }
-    }).catch(e => {
-        console.log(e);
-    })
-
+            return classicRank;
+        }).catch(e => {
+            console.log(e);
+        })
 }
 
 export default setClassicRank;
