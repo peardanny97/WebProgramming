@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 function EndScreen(props){
     const [ranks, setRanks] = useState([]);
     const [rankUpload, setRankUpload] = useState(false);
-
+    let random_thumbnail_number = Math.floor(Math.random()*20) +1
+    let random_thumbnail = "img/"+random_thumbnail_number.toString() +".png"
 
     useEffect(() => {
         setClassicRank(props.user.displayName, props.score.current).then(rank => {
@@ -20,7 +21,7 @@ function EndScreen(props){
     if(rankUpload) {
         return (
             <div id="end-screen">
-                <img src="img/1.png" className="end-background-img" />
+                <img src={random_thumbnail} className="end-background-img" />
                 <div className="end-container">
                     <div className="end-content">
                         <div className="ranks">

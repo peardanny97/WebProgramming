@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import getFoodsData from "../useCase/getFoodsData";
 import StateWindow from "./StateWindow";
 import { CorrectButton, WrongButton } from "./ResultButton";
+import { Correct, Wrong } from "./Answer";
 
 function TimeAttack(props) {
     const [idx, setIdx] = useState(0);
@@ -80,6 +81,8 @@ function TimeAttack(props) {
             <div className="game-screen" style={{ background: "black" }}>
                 <CorrectButton open={correctOpen} setOpen={setCorrectOpen} />
                 <WrongButton open={wrongOpen} setOpen={setWrongOpen} />
+                {/* <Correct isCorrect = {correctOpen} setIsCorrect = {setCorrectOpen}/>
+                <Wrong isWrong = {wrongOpen} setIsWrong = {setWrongOpen}/> */}
 
                 <StateWindow
                     setHandlePenalty = {setHandlePenalty}

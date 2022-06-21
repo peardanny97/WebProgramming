@@ -7,8 +7,24 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    background-color: white;
-    color: green;
+    background-color: #95D03A;
+    color: whitesmoke;
+    font-size: 3vw;
+    width: 10vw;
+    height: 10vh;
+    z-index: 3;
+}
+.Wrong-Answer {
+    position: absolute;
+    left: 50vw;
+    margin-left: -5vw;
+    top: 50vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #95D03A;
+    color: whitesmoke;
     width: 10vw;
     height: 10vh;
     z-index: 3;

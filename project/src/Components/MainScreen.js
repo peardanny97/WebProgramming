@@ -16,6 +16,9 @@ function GreetingMessage({ user }) {
 const showM = () => {
     console.log("hi?")
 }
+
+let random_thumbnail_number = Math.floor(Math.random()*20) +1
+let random_thumbnail = "img/"+random_thumbnail_number.toString() +".png"
 function MainScreen(props) {
     console.log(props);
     const [showClassicRule, setShowClassicRule] = useState(false);
@@ -23,7 +26,7 @@ function MainScreen(props) {
 
     return (
         <div id="main-screen">
-            <img src="img/1.png" className="main-background-img" />
+            <img src={random_thumbnail} className="main-background-img" />
             <div className="main-container">
                 <div className="main-content">
                     {props.user ? (

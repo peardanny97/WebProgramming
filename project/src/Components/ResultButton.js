@@ -26,7 +26,10 @@ function CorrectButton(props) {
             component={
                 <div
                     className="result-alert"
-                    style={{ backgroundColor: "green" }}
+                    style={{
+                         backgroundColor: "#95D03A",
+                         borderRadius:"10%"
+                        }}
                 >
                     정답!
                 </div>
@@ -42,7 +45,10 @@ function WrongButton(props) {
             component={
                 <div
                     className="result-alert"
-                    style={{ backgroundColor: "red" }}
+                    style={{ 
+                        backgroundColor: "#CB2027",
+                        borderRadius:"10%"
+                    }}
                 >
                     오답!
                 </div>

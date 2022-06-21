@@ -32,6 +32,7 @@
 }
 
 .end-score{
+    padding-top: 8vh;
     font-size: 3.8vw;
     padding-bottom: 0.6vh;
 }
@@ -45,7 +46,8 @@
     color: #FFF;
 }
 .ranks {
-    border: 1px solid white;
+    margin-top: -10vh;
+    border: 0.3vw solid white;
     width: 70%;
     padding-bottom: 3%;
     font-size: 1.4vw;
