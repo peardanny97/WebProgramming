@@ -17,6 +17,8 @@ function StateWindow(props) {
                         handleStart = {props.handleStart}
                         handlePenalty = {props.handlePenalty}
                         handleReset = {props.handleReset}
+                        time = {props.time}
+                        setTime = {props.setTime}
                      />
                 </div>
                 :

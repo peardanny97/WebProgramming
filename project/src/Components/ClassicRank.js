@@ -1,6 +1,6 @@
 import "./Rank.css"
 
-function Rank({rank, user, score}) {
+function ClassicRank({rank, user, score}) {
     return (
         <div className="ranking">
           <div className="ranking-element">{rank}</div>
@@ -10,4 +10,4 @@ function Rank({rank, user, score}) {
     );
 }
 
-export default Rank;
+export default ClassicRank;

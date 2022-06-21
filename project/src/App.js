@@ -13,9 +13,10 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 function App() {
     const firebaseApp = app;
     const [user, setUser] = useState(null);
+    const [time, setTime] = useState(0);
     const score = useRef(0);
 
-    console.log("app start");
+    // console.log("app start");
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -37,9 +38,9 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<MainScreen user={user}/>} />
                     <Route path="/classic" element={ <GameScreen score={score} changeScore={changeScore}/>} />
-                    <Route path="/timeattack" element={ <TimeAttack score={score} changeScore={changeScore}/>} />
+                    <Route path="/timeattack" element={ <TimeAttack time={time} setTime={setTime}/>} />
                     <Route path="/classic-end" element={ <ClassicEndScreen user={user} score={score} />} />
-                    <Route path="/timeattack-end" element={ <TimeAttackEndScreen user={user} score={score} />} />
+                    <Route path="/timeattack-end" element={ <TimeAttackEndScreen user={user} time={time} />} />
                 </Routes>
             </div>
         </BrowserRouter>

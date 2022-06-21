@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import "./EndScreen.css";
 import setClassicRank from "../useCase/setClassicRank";
-import Rank from "./Rank";
+import ClassicRank from "./ClassicRank";
 import { useEffect, useState } from "react";
 
 function ClassicEndScreen(props){
@@ -26,8 +26,8 @@ function ClassicEndScreen(props){
                     <div className="end-content">
                         <div className="ranks">
                             <h1 className="rank-title">TOP 5</h1>
-                            <div className="room">
-                                {ranks.map((data, rank) => <Rank key={rank} rank={rank+1} user={data.user} score={data.score} />)}
+                            <div className="rank">
+                                {ranks.map((data, rank) => <ClassicRank key={rank} rank={rank+1} user={data.user} score={data.score} />)}
                             </div>
                         </div>
                         <div className="end-score">Score {props.score.current} 개</div>

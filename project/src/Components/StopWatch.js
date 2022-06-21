@@ -5,14 +5,14 @@ import Timer from "./Timer";
   
 function StopWatch(props) {
   const [isActive, setIsActive] = useState(false);
-  const [time, setTime] = useState(0);
+  // const [time, setTime] = useState(0);
   
   React.useEffect(() => {
     let interval = null;
   
     if (isActive) {
       interval = setInterval(() => {
-        setTime((time) => time + 10);
+        props.setTime((time) => time + 10);
       }, 10);
     } else {
       clearInterval(interval);
@@ -28,7 +28,7 @@ function StopWatch(props) {
   },[]);
   React.useEffect(()=>{
     if (props.handlePenalty) {
-        setTime( time + 10000);
+        props.setTime( props.time + 10000);
         setTimeout(() => {
           props.setHandlePenalty(false);
       }, 1500);
@@ -38,13 +38,13 @@ function StopWatch(props) {
   
   const handleReset = () => {
     setIsActive(false);
-    setTime(0);
+    props.setTime(0);
   };
   
   return (
     
     <div className="stop-watch">
-      <Timer time={time} />
+      <Timer time={props.time} />
       
     </div>
   );

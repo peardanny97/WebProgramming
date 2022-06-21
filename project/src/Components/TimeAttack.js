@@ -66,7 +66,6 @@ function TimeAttack(props) {
         getFoodsData().then((res) => {
             setFoods(res.sort(() => Math.random() - 0.5));
             setFoodsUpload(true);
-            props.changeScore(0);
         });
     }, []);
 
@@ -92,6 +91,8 @@ function TimeAttack(props) {
                     isTimeAttack={true}
                     idx={idx}
                     foods={foods}
+                    time={props.time}
+                    setTime={props.setTime}
                 />
                 <div className="Left-box">
                     <h2 className="LeftText">
