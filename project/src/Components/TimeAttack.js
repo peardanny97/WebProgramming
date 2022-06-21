@@ -29,10 +29,10 @@ function TimeAttack(props) {
                     setHandleReset(true);
                     setHandleStart(false);
                     setCorrectOpen(true);
-                    navigate("../end"); // end시 시간 출력하도록 수정 필요
+                    navigate("../timeattack-end"); // end시 시간 출력하도록 수정 필요
                 }
                 setIdx(idx + 1);
-                props.changeScore(props.score.current + 1);
+                // props.changeScore(props.score.current + 1);
                 setCorrectOpen(true);
                 setHandlePenalty(false);
             } else {
@@ -49,10 +49,10 @@ function TimeAttack(props) {
                     setHandleReset(true);
                     setHandleStart(false);
                     setCorrectOpen(true);
-                    navigate("../end"); // end시 시간 출력하도록 수정 필요
+                    navigate("../timeattack-end"); // end시 시간 출력하도록 수정 필요
                 }
                 setIdx(idx + 1);
-                props.changeScore(props.score.current + 1);
+                // props.changeScore(props.score.current + 1);
                 setCorrectOpen(true);
                 setHandlePenalty(false);
             } else {
@@ -72,7 +72,7 @@ function TimeAttack(props) {
 
     useEffect(() => {
         if (foods.length !== 0 && idx === foods.length) {
-            navigate("../end");
+            navigate("../timeattack-end");
         }
     }, [idx]);
 

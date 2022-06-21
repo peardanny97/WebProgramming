@@ -5,7 +5,8 @@ import Header from "./Components/Header";
 import MainScreen from "./Components/MainScreen";
 import TimeAttack from "./Components/TimeAttack";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import EndScreen from "./Components/EndScreen";
+import ClassicEndScreen from "./Components/ClassicEndScreen";
+import TimeAttackEndScreen from "./Components/TimeAttackEndScreen";
 import {useState, useRef} from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -35,9 +36,10 @@ function App() {
                 <Header user={user}/>
                 <Routes>
                     <Route exact path="/" element={<MainScreen user={user}/>} />
-                    <Route path="/game" element={ <GameScreen score={score} changeScore={changeScore}/>} />
+                    <Route path="/classic" element={ <GameScreen score={score} changeScore={changeScore}/>} />
                     <Route path="/timeattack" element={ <TimeAttack score={score} changeScore={changeScore}/>} />
-                    <Route path="/end" element={ <EndScreen user={user} score={score} />} />
+                    <Route path="/classic-end" element={ <ClassicEndScreen user={user} score={score} />} />
+                    <Route path="/timeattack-end" element={ <TimeAttackEndScreen user={user} score={score} />} />
                 </Routes>
             </div>
         </BrowserRouter>

@@ -27,9 +27,9 @@ function GameScreen(props) {
                 props.changeScore(props.score.current + 1);
                 setCorrectOpen(true);
             } else {
-                navigate("../end");
+                navigate("../classic-end");
                 setWrongOpen(true);
-                setTimeout(()=>{navigate("../end");}, 1000);
+                setTimeout(()=>{navigate("../classic-end");}, 1000);
                 
             }
         } else {
@@ -40,9 +40,9 @@ function GameScreen(props) {
                 props.changeScore(props.score.current + 1);
                 setCorrectOpen(true);
             } else {
-                navigate("../end");
+                navigate("../classic-end");
                 setWrongOpen(true);
-                setTimeout(()=>{navigate("../end");}, 1000);
+                setTimeout(()=>{navigate("../classic-end");}, 1000);
                 
             }
         }
@@ -58,7 +58,7 @@ function GameScreen(props) {
 
     useEffect(()=>{
         if(foods.length !== 0 && idx === foods.length ){
-            navigate("../end");
+            navigate("../classic-end");
         }
     }, [idx])
 

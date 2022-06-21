@@ -4,7 +4,7 @@ import setClassicRank from "../useCase/setClassicRank";
 import Rank from "./Rank";
 import { useEffect, useState } from "react";
 
-function EndScreen(props){
+function ClassicEndScreen(props){
     const [ranks, setRanks] = useState([]);
     const [rankUpload, setRankUpload] = useState(false);
     let random_thumbnail_number = Math.floor(Math.random()*20) +1
@@ -44,4 +44,4 @@ function EndScreen(props){
 
 }
 
-export default EndScreen;
+export default ClassicEndScreen;

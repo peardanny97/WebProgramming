@@ -78,7 +78,7 @@ function MainScreen(props) {
                             </motion.button>
                     )}
                     {props.user ? (
-                        <Link to="/game" className="link">
+                        <Link to="/classic" className="link">
                             <motion.button
                             className="Classic-button"
                             type="button"
