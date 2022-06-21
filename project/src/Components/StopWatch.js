@@ -29,7 +29,9 @@ function StopWatch(props) {
   React.useEffect(()=>{
     if (props.handlePenalty) {
         setTime( time + 10000);
-        console.log(time)
+        setTimeout(() => {
+          props.setHandlePenalty(false);
+      }, 1500);
     }
   },[props.handlePenalty]);
   

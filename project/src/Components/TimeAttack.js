@@ -82,6 +82,7 @@ function TimeAttack(props) {
                 <WrongButton open={wrongOpen} setOpen={setWrongOpen} />
 
                 <StateWindow
+                    setHandlePenalty = {setHandlePenalty}
                     handleStart={handleStart}
                     handlePenalty={handlePenalty}
                     handleReset={handleReset}

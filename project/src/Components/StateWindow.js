@@ -13,6 +13,7 @@ function StateWindow(props) {
                 {props.isTimeAttack?
                 <div className="ScoreText">
                     <StopWatch 
+                        setHandlePenalty = {props.setHandlePenalty}
                         handleStart = {props.handleStart}
                         handlePenalty = {props.handlePenalty}
                         handleReset = {props.handleReset}
