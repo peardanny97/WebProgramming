@@ -11,7 +11,7 @@ React, Framer, Mui, Firebase, React-router-dom을 이용한 팀 web client appli
 
 퀴즈에 올라온 음식 사진의 설명과 가격을 보며 사용자가 전국의 맛집 정보를 동시에 파악할 수 있도록 함
 
-### 멤버
+## 멤버
 
 Back-end: 공준형, 김유민
 
