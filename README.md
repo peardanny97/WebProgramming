@@ -23,3 +23,6 @@ Database: 이동제
 ![더 비쌀까 쌀까](https://user-images.githubusercontent.com/37990408/229811088-a10860e4-64f3-4197-a957-a1804362b1b5.png)
 ![image](https://user-images.githubusercontent.com/37990408/229811390-a5ff151e-c17b-4586-8915-7e7e198b7462.png)
 ![image](https://user-images.githubusercontent.com/37990408/229811623-fec7308d-5fc0-41ac-9da8-5740a3ba47a5.png)
+
+## 실행 url
+https://publicsnuteam2.web.app/
